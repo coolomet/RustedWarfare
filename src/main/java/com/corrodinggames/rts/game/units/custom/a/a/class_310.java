@@ -1,0 +1,54 @@
+package com.corrodinggames.rts.game.units.custom.a.a;
+
+import com.corrodinggames.rts.game.PlayerData;
+import com.corrodinggames.rts.game.Side;
+import com.corrodinggames.rts.game.units.Unit;
+import com.corrodinggames.rts.game.units.OrderableUnit;
+import com.corrodinggames.rts.game.units.custom.class_585;
+import com.corrodinggames.rts.game.units.custom.class_588;
+import com.corrodinggames.rts.game.units.f.class_304;
+import com.corrodinggames.rts.gameFramework.class_340;
+import com.corrodinggames.rts.gameFramework.utility.class_684;
+
+// $FF: renamed from: com.corrodinggames.rts.game.units.custom.a.a.n
+public strictfp class class_310 extends class_304 {
+    public class_588 a;
+    public float b;
+    public boolean c;
+    public Side d;
+    public class_684 e;
+
+    public void setup(OrderableUnit var1, float var2) {
+    }
+
+    public int excludeTeam(OrderableUnit var1) {
+        return -2;
+    }
+
+    public PlayerData onlyEnemiesOfTeam(OrderableUnit var1) {
+        return null;
+    }
+
+    public PlayerData onlyTeam(OrderableUnit var1) {
+        return null;
+    }
+
+    public void callback(OrderableUnit var1, float var2, Unit var3) {
+        class_588 var4 = var3.de();
+        if (this.a == null || var4 != null && class_585.a(this.a, var4)) {
+            float var5 = class_340.a(var1.xCord, var1.yCord, var3.xCord, var3.yCord);
+            if (var5 < this.b) {
+                if (var3.cm < 1.0F && !this.c) {
+                    return;
+                }
+
+                if (this.d != null && !var1.bX.a(this.d, var3.bX)) {
+                    return;
+                }
+
+                this.e.add(var3);
+            }
+        }
+
+    }
+}
